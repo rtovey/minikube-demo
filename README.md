@@ -1,7 +1,7 @@
-# minikube-demo
+# Minikube Demo
 Kubernetes/Minikube demo of a two tier web application
 
-# Initial Setup
+## Initial Setup
 
 1. Install Linux development environment
     1. e.g. Ubuntu 20.4 server
@@ -55,13 +55,67 @@ $ sudo ln -s $(which minikube) /usr/local/bin/kubectl
 $ kubectl get pods
 ```
 
-# Deploy Cluster
+## Deploy Sample web application to the cluster
+
+### Architecture
+
+```
+   +---------------+
+   |               |
+   | User (browser)|
+   |               |
+   +---------------+
+           ^
+           |
++----------+--------------------------+
+|          |        Kubernetes Cluster|
+|  +-------+-------+                  |
+|  |               |                  |
+|  |               | Pod 1            |
+|  |   Web App     |                  |
+|  |               |                  |
+|  |   (astro-web) | HPA auto-scaling |
+|  |               | ---------->      |
+|  |               |                  |
+|  +---------------+                  |
+|          ^                          |
+|          |                          |
+|          |                          |
+|          |                          |
+|          |                          |
+|  +-------+-------+                  |
+|  |               |                  |
+|  |               | Pod 2            |
+|  |               |                  |
+|  |   Data API    |                  |
+|  |               |                  |
+|  |               | HPA auto-scaling |
+|  |  (astro-api)  | ---------->      |
+|  |               |                  |
+|  +---------------+                  |
+|                                     |
++-------------------------------------+
+```
+
+### Deployment Steps
 
 1. Ensure Minikube is up: 
 ```
+$ minikube status
+
+# Start if required:
 $ minikube start
 ```
+
 2. Apply deployment:
 ```
 $ kubectl apply -f .
 ```
+
+3. Check running pods:
+```
+$ kubectl get pods
+```
+
+## HPA auto-scaling demonstration
+
