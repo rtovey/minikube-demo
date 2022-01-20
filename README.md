@@ -174,3 +174,4 @@ $ drill --benchmark load-test/benchmark.yaml
 ### Links
 
 * [Kubernetes HPA scaling algorith details](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+* [Kubernetes HPA algorithm explanation](https://medium.com/expedia-group-tech/autoscaling-in-kubernetes-why-doesnt-the-horizontal-pod-autoscaler-work-for-me-5f0094694054)
