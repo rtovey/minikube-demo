@@ -6,6 +6,7 @@ metadata:
   labels:
     run: astro-web
 spec:
+  type: LoadBalancer
   ports:
   - port: 80
     protocol: TCP
@@ -19,10 +20,8 @@ metadata:
   labels:
     run: astro-api
 spec:
-  type: LoadBalancer
   ports:
   - port: 8090
-    targetPort: 8090
     protocol: TCP
   selector:
     run: astro-api
