@@ -5,7 +5,7 @@ iterations: 400000
 rampup: 2
 
 plan:
-- name: index
+  - name: index
     request:
       url: /
 
