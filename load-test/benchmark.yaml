@@ -5,15 +5,19 @@ iterations: 400000
 rampup: 2
 
 plan:
+- name: index
+    request:
+      url: /
+
   - name: sunrise
     request:
-      url: /sun/rise-set?lat=51.47782&long=0
+      url: /api/sun/rise-set?lat=51.47782&long=0
 
   - name: moonrise
     request:
-      url: /moon/rise-set?lat=51.47782&long=0
+      url: /api/moon/rise-set?lat=51.47782&long=0
 
   - name: moonphase
     request:
-      url: /moon/phase
+      url: /api/moon/phase
 ---
