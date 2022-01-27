@@ -10,6 +10,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
+    nodePort: 31080
   selector:
     run: astro-web
 ---
